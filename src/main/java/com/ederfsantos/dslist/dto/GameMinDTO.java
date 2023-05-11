@@ -1,6 +1,7 @@
 package com.ederfsantos.dslist.dto;
 
 import com.ederfsantos.dslist.entities.Game;
+import com.ederfsantos.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -9,36 +10,47 @@ public class GameMinDTO {
 	private Integer year;
 	private String imgUrl;
 	private String shortDescription;
+
 	public GameMinDTO() {
-		
+
 	}
+
 	public GameMinDTO(Game game) {
-		
+
 		id = game.getId();
 		title = game.getTitle();
 		year = game.getYear();
 		imgUrl = game.getImgUrl();
 		shortDescription = game.getShortDescription();
 	}
+
+	public GameMinDTO(GameMinProjection projection) {
+
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public Integer getYear() {
 		return year;
 	}
+
 	public String getImgUrl() {
 		return imgUrl;
 	}
+
 	public String getShortDescription() {
 		return shortDescription;
 	}
-	
-	
-	
-	
-	
-	
+
 }
